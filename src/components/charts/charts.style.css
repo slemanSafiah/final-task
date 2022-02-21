@@ -1,0 +1,64 @@
+.bar-chart {
+  width: 100%;
+  height: 200px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  background-color: #35415e;
+}
+
+.line-chart {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 50px;
+  border-radius: 5px;
+  background-color: #35415e;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #35415e;
+}
+
+.line-chart-title {
+  position: absolute;
+  top: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  .line-chart {
+    width: 100%;
+    height: 200px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background-color: #35415e;
+    margin-top: 20px;
+  }
+
+  .line-chart-title {
+    position: absolute;
+    top: 10px;
+    color: white;
+    font-size: 12px;
+  }
+
+  .pie-chart {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #35415e;
+    margin-top: 20px;
+  }
+}
