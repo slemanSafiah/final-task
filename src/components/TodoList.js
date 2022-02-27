@@ -54,7 +54,13 @@ function TodoList() {
             No Tasks Yet ...
           </div>
         ) : (
-          tasks.map((task) => <Task desc={task.task} type={task.type} />)
+          tasks.map((task) => (
+            <Task
+              key={Math.random() * 100000}
+              desc={task.task}
+              type={task.type}
+            />
+          ))
         )}
       </div>
     </div>
