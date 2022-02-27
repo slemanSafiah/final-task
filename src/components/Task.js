@@ -4,7 +4,7 @@ import { CheckOutlined, CheckRounded } from "@mui/icons-material";
 import { MoreVert, InfoOutlined } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 
-function Task({ desc, type }) {
+function Task({ desc, type, id }) {
   let colors = {
     1: "red",
     2: "green",
