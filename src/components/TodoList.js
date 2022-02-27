@@ -11,12 +11,14 @@ function TodoList() {
 
   useEffect(() => {
     setLoading(true);
+    const ac = new AbortController();
     axios
       .get("https://6212ee07f43692c9c6f564f5.mockapi.io/api/v1/tasks")
       .then((result) => {
         setTasks(result.data);
         setLoading(false);
       });
+    return () => ac.abort();
   }, []);
 
   const date = Date.now();
@@ -54,7 +56,14 @@ function TodoList() {
             No Tasks Yet ...
           </div>
         ) : (
-          tasks.map((task) => <Task desc={task.task} type={task.type} />)
+          tasks.map((task) => (
+            <Task
+              key={task.id}
+              id={task.id}
+              desc={task.task}
+              type={task.type}
+            />
+          ))
         )}
       </div>
     </div>
