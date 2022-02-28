@@ -4,20 +4,28 @@ import { CircularProgress } from "@mui/material";
 import moment from "moment";
 import Task from "./Task";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { selectList, addTasks } from "../app/listSlice";
 
 function TodoList() {
-  const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const tasks = useSelector(selectList);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
     axios
       .get("https://6212ee07f43692c9c6f564f5.mockapi.io/api/v1/tasks")
       .then((result) => {
-        setTasks(result.data);
+        dispatch(addTasks(result.data));
         setLoading(false);
       });
   }, []);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setLoading(false);
+  // }, [tasks]);
 
   const date = Date.now();
 
@@ -54,7 +62,14 @@ function TodoList() {
             No Tasks Yet ...
           </div>
         ) : (
-          tasks.map((task) => <Task desc={task.task} type={task.type} />)
+          tasks.map((task) => (
+            <Task
+              desc={task.task}
+              key={task.id}
+              id={task.id}
+              type={task.type}
+            />
+          ))
         )}
       </div>
     </div>

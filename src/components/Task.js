@@ -3,8 +3,10 @@ import { Checkbox } from "@mui/material";
 import { CheckOutlined, CheckRounded } from "@mui/icons-material";
 import { MoreVert, InfoOutlined } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../app/listSlice";
 
-function Task({ desc, type }) {
+function Task({ desc, type, id }) {
   let colors = {
     1: "red",
     2: "green",
@@ -20,13 +22,20 @@ function Task({ desc, type }) {
   };
 
   const [checked, setChecked] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     setChecked((prev) => !prev);
+    setTimeout(() => {
+      dispatch(deleteTask(id));
+    }, 3000);
   };
 
   return (
-    <div className="flex-start">
+    <div
+      id="task_id"
+      className={checked ? "flex-start fade-out" : "flex-start"}
+    >
       <Checkbox
         icon={
           <CheckRounded

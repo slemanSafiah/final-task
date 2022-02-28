@@ -460,3 +460,18 @@
   color: #dadada;
   border-right: 5px #862424 solid;
 }
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: hidden;
+  }
+}
+
+.fade-out {
+  animation-name: fade;
+  animation-duration: 3s;
+}
